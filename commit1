@@ -1,0 +1,50 @@
+def main()
+        # get user to input the water quality test results
+        fish_type = input("Enter fish type (freshwater/saltwater): ")
+        nitrate = float(input("Enter nitrate level: "))
+        nitrite = float(input("Enter nitrite level: "))
+        chlorine = float(input("Enter chlorine level: "))
+        hardness = float(input("Enter water hardness level: "))
+        alkalinity = float(input("Enter water Alkalinity level: "))
+        Ph = float(input("Enter water Ph level: "))  
+def check_nitrate(nitrate):
+    if 0 <= nitrate <= 25:
+        return "Nitrate level is safe."
+    elif 50 <= nitrate <= 250:
+        return "Nitrate level is high. A water change is needed."
+    else:
+        return "Nitrate level is outside of specified ranges."
+def check_nitrite(nitrite):
+    if 0 <= nitrate <= 1:
+        return "Nitrite level is safe."
+    elif 2 <= nitrate <= 10:
+        return "Nitrite level is high. A water change is needed."
+    else:
+        return "Nitrite level is outside of specified ranges."
+def check_chlorine(chlorine):
+    if 0 <= nitrate <= .7:
+        return "Chlorine level is safe."
+    elif .8 <= Chlorine <= 3:
+        return "Chlorine level is high. A water change is needed, Check your water source."
+    else:
+        return "Chlorine level is outside of specified ranges."
+def check_water_hardness(hardness, fish_type):
+    if fish_type.lower() == 'freshwater':
+        if 0 <= hardness <= 150:
+            return "Water hardness is within a safe range for freshwater fish."
+        else:
+            return "Water hardness is outside of specified ranges for freshwater fish."
+    elif fish_type.lower() == 'saltwater':
+        if 150 <= hardness <= 300:
+            return "Water hardness is within a safe range for saltwater fish."
+        else:
+            return "Water hardness is outside of specified ranges for saltwater fish."
+    else:
+        return "Invalid fish type."
+def check_alkalinity(alkalinity):
+    if 0 <= alkalinity <= 25:
+        return "Alkalinity level is safe."
+    elif 50 <= alkalinity <= 250:
+        return "Alkalinity level is high. A water change is needed."
+    else:
+        return "Alkalinity level is outside of specified ranges."
