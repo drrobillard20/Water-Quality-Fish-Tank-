@@ -1,0 +1,84 @@
+def check_nitrate(nitrate):
+    if 0 <= nitrate <= 25:
+        return "Nitrate level is safe."
+    elif 26 <= nitrate <= 50:
+        return "Nitrate level is high. A water change is needed."
+    else:
+        return "Nitrate level is outside of specified ranges."
+
+def check_nitrite(nitrite):
+    if 0 <= nitrite <= 1:
+        return "Nitrite level is safe."
+    elif 1.1 <= nitrite <= 2:
+        return "Nitrite level is high. A water change is needed."
+    else:
+        return "Nitrite level is outside of specified ranges."
+
+def check_chlorine(chlorine):
+    if 0 <= chlorine <= 0.7:
+        return "Chlorine level is safe."
+    elif 0.8 <= chlorine <= 3:
+        return "Chlorine level is high. A water change is needed. Check your water source."
+    else:
+        return "Chlorine level is outside of specified ranges."
+
+def check_water_hardness(hardness, fish_type):
+    if fish_type.lower() == 'freshwater':
+        if 0 <= hardness <= 150:
+            return "Water hardness is within a safe range for freshwater fish."
+        else:
+            return "Water hardness is outside of specified ranges for freshwater fish."
+    elif fish_type.lower() == 'saltwater':
+        if 151 <= hardness <= 300:
+            return "Water hardness is within a safe range for saltwater fish."
+        else:
+            return "Water hardness is outside of specified ranges for saltwater fish."
+    else:
+        return "Invalid fish type."
+
+def check_alkalinity(alkalinity):
+    if 40 <= alkalinity <= 120:
+        return "Alkalinity level is safe."
+    elif 121 <= alkalinity <= 240:
+        return "Alkalinity level is high. A water change is needed."
+    else:
+        return "Alkalinity level is outside of specified ranges."
+
+def check_ph(ph, fish_type):
+    if fish_type.lower() == 'freshwater':
+        if 6.8 <= ph <= 7.6:
+            return "pH level is safe for freshwater fish."
+        else:
+            return "pH level is not safe for freshwater fish."
+    elif fish_type.lower() == 'saltwater':
+        if 7.7 <= ph <= 8.4:
+            return "pH level is safe for saltwater fish."
+        else:
+            return "pH level is not safe for saltwater fish."
+    else:
+        return "Invalid fish type."
+
+def main():
+    print("Starting the water quality checker...")  # Debug print statement
+    while True:
+        fish_type = input("Enter fish type (freshwater/saltwater): ")
+        nitrate = float(input("Enter nitrate level: "))
+        nitrite = float(input("Enter nitrite level: "))
+        chlorine = float(input("Enter chlorine level: "))
+        hardness = float(input("Enter water hardness level: "))
+        alkalinity = float(input("Enter water alkalinity level: "))
+        ph = float(input("Enter water pH level: "))
+
+        print(check_nitrate(nitrate))
+        print(check_nitrite(nitrite))
+        print(check_chlorine(chlorine))
+        print(check_water_hardness(hardness, fish_type))
+        print(check_alkalinity(alkalinity))
+        print(check_ph(ph, fish_type))
+
+        again = input("Do you want to test another sample? (yes/no): ")
+        if again.lower() != 'yes':
+            break
+
+if __name__ == "__main__":        
+    main()
